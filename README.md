@@ -73,14 +73,17 @@ The first PDF contains the database walkthrough and initial guided exercises; th
 
 ## Completed Implementations
 
-The `01_beginner-level.sql` file currently contains the first two beginner exercises from Module 1:
+The `01_beginner-level.sql` file currently contains the first five beginner exercises from Module 1:
 
-| Question | Objective                                                       | Implementation                                                                                                                    |
-| -------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **Q1**   | Retrieve the current server date and time.                      | Uses `CURRENT_TIMESTAMP` with the `CurrentDateTime` alias.                                                                        |
-| **Q2**   | Retrieve current timestamps with higher precision for auditing. | Uses `SYSDATETIME()` for the server's high-precision local timestamp and `SYSUTCDATETIME()` for the high-precision UTC timestamp. |
+| Question | Objective                                                       | Implementation                                                                                                                      |
+| -------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Q1**   | Retrieve the current server date and time.                      | Uses `CURRENT_TIMESTAMP` with the `CurrentDateTime` alias.                                                                          |
+| **Q2**   | Retrieve current timestamps with higher precision for auditing. | Uses `SYSDATETIME()` for the server's high-precision local timestamp and `SYSUTCDATETIME()` for the high-precision UTC timestamp.   |
+| **Q3**   | Retrieve each patient's year of birth.                          | Uses `YEAR()` and `DATEPART(year, ...)` to extract the birth year alongside each patient's ID and name.                             |
+| **Q4**   | Retrieve each patient's numerical birth month.                  | Uses `CONCAT()` to display the patient's full name, then compares `MONTH()` with `DATEPART(month, ...)` to extract the birth month. |
+| **Q5**   | Retrieve the day of the month on which each patient was born.   | Uses `CONCAT()` to display the patient's full name, then compares `DAY()` with `DATEPART(day, ...)` to extract the birth day.       |
 
-**Progress:** Module 1 Questions 1–2 have been implemented. Questions 3–20 and Modules 2–3 remain to be completed.
+**Progress:** Module 1 Questions 1–5 have been implemented. Questions 6–20 and Modules 2–3 remain to be completed.
 
 ## Getting Started
 
@@ -99,17 +102,17 @@ The `01_beginner-level.sql` file currently contains the first two beginner exerc
    ```
 
 4. Open `60 Date & Time Functions PRACTICE QUESTIONS 02.pdf` and work through the exercises in numerical order.
-5. Write and execute your solutions in the corresponding `.sql` files. The completed Q1 and Q2 queries are in `01_beginner-level.sql`.
+5. Write and execute your solutions in the corresponding `.sql` files. The completed Q1–Q5 queries are in `01_beginner-level.sql`.
 
 > **Note:** `CURRENT_TIMESTAMP` returns the current SQL Server system date and time. `SYSDATETIME()` returns a higher-precision local timestamp, while `SYSUTCDATETIME()` returns a higher-precision UTC timestamp. Questions using current-time functions produce results relative to the SQL Server system clock. Date parsing, weekday names, and `ISDATE()` results may depend on session language and date-format settings. Time-zone questions state assumptions about the source timestamps.
 
 ## Progress Tracker
 
-- [ ] **Module 1:** Retrieving and Component Functions (Q1–Q20; Q1–Q2 implemented)
+- [ ] **Module 1:** Retrieving and Component Functions (Q1–Q20; Q1–Q5 implemented)
 - [ ] **Module 2:** Math and Modification Functions (Q21–Q40)
 - [ ] **Module 3:** Formatting, Conversions, and Advanced Logic (Q41–Q60)
 
-**Current status:** Database schema and sample data prepared; Module 1 beginner Questions 1–2 implemented in `01_beginner-level.sql`. Remaining SQL solutions will be added progressively.
+**Current status:** Database schema and sample data prepared; Module 1 beginner Questions 1–5 implemented in `01_beginner-level.sql`. Remaining SQL solutions will be added progressively.
 
 ## Project Purpose
 
