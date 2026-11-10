@@ -35,7 +35,7 @@ FROM Patients;
 SELECT
     CONCAT(FirstName, ' ', LastName) AS PatientName,
     MONTH(DateOfBirth) AS BirthMonth,
-    DATEPART (MONTH, DateOfBirth) AS BirthMonthUsingDatePart
+    DATEPART (MONTH, DateOfBirth) AS BirthMonthUsingDATEPART
 FROM Patients;
 
 --Q5. Extract patients' birth days
@@ -47,5 +47,31 @@ USE HospitalDB;
 SELECT
     CONCAT(FirstName, ' ', LastName) AS PatientsName,
     DAY(DateOfBirth) AS DayOfBirth,
-    DATEPART (DAY, DateOfBirth) AS DayOfBirthUsingDatePart
+    DATEPART (DAY, DateOfBirth) AS DayOfBirthUsingDATEPART
 FROM Patients;
+
+-- Q6. Extract appointment years
+
+-- Retrieve each appointment's ID, patient ID, and appointment year.
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+    PatientID,
+    YEAR(AppointmentDateTime) AS AppointmentYear,
+    DATEPART (YEAR, AppointmentDateTime) AS AppointmentYearUsingDATEPART
+FROM Appointments;
+
+-- Q7. Extract multiple appointment date components
+
+-- Retrieve the appointment ID and appointment date, along with its year, month, and day as
+-- separate columns
+
+SELECT
+    AppointmentID,
+    AppointmentDateTime,
+    YEAR(AppointmentDateTime) AS AppointmentYear,
+    MONTH(AppointmentDateTime) AS AppointmentMonth,
+    DAY(AppointmentDateTime) AS AppointmentDay
+FROM Appointments;
