@@ -68,10 +68,27 @@ FROM Appointments;
 -- Retrieve the appointment ID and appointment date, along with its year, month, and day as
 -- separate columns
 
+USE HospitalDB;
+
 SELECT
     AppointmentID,
     AppointmentDateTime,
     YEAR(AppointmentDateTime) AS AppointmentYear,
     MONTH(AppointmentDateTime) AS AppointmentMonth,
     DAY(AppointmentDateTime) AS AppointmentDay
+FROM Appointments;
+
+-- Q8. Identify the calendar quarter of appointments
+
+-- Retrieve each appointment's ID, appointment date, and calendar quarter (Q1, Q2, Q3, or Q4).
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+    AppointmentDateTime,
+    CONCAT(
+        'Q',
+        DATEPART (QUARTER, AppointmentDateTime)
+    ) AS CalendarQuarter
 FROM Appointments;
