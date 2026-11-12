@@ -92,3 +92,16 @@ SELECT
         DATEPART (QUARTER, AppointmentDateTime)
     ) AS CalendarQuarter
 FROM Appointments;
+
+-- Q9. Retrieve patients' birth month names
+
+-- Retrieve each patient's name, date of birth, and full month name instead of a numerical
+-- month.
+
+USE HospitalDB;
+
+SELECT
+    CONCAT(FirstName, ' ', LastName) AS PatientName,
+	DateOfBirth,
+    DATENAME(MONTH, DateOfBirth) AS [MonthName]
+FROM Patients;
