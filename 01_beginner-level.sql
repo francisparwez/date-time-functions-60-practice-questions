@@ -105,3 +105,16 @@ SELECT
 	DateOfBirth,
     DATENAME(MONTH, DateOfBirth) AS [MonthName]
 FROM Patients;
+
+--Q10. Identify the weekday of each appointment
+
+--Retrieve the appointment ID, appointment timestamp, and full weekday name on which the
+--appointment is scheduled.
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+	AppointmentDateTime,
+    DATENAME(WEEKDAY, AppointmentDateTime) AS [AppointmentWeekDay]
+FROM Appointments;
