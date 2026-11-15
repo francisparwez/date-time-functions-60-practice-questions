@@ -1,3 +1,6 @@
+-- Module 1 ‒ Retrieving and Component Functions
+-- Beginner ‒ Questions 1‒10
+
 -- Q1. Retrieve the current date and time
 
 -- The hospital management system needs to display the current server date and time. Write a
