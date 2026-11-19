@@ -74,24 +74,25 @@ The first PDF contains the database walkthrough and initial guided exercises; th
 
 ## Completed Implementations
 
-The `01_beginner-level.sql` file contains the first ten beginner exercises from Module 1. The `02-retrieving__component-functions-intermediate-level.sql` file contains the first two intermediate exercises (Q11–Q12):
+The `01_beginner-level.sql` file contains the first ten beginner exercises from Module 1. The `02-retrieving__component-functions-intermediate-level.sql` file contains the first three intermediate exercises (Q11–Q13):
 
-| Question | Objective                                                                               | Implementation                                                                                                                      |
-| -------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Q1**   | Retrieve the current server date and time.                                              | Uses `CURRENT_TIMESTAMP` with the `CurrentDateTime` alias.                                                                          |
-| **Q2**   | Retrieve current timestamps with higher precision for auditing.                         | Uses `SYSDATETIME()` for the server's high-precision local timestamp and `SYSUTCDATETIME()` for the high-precision UTC timestamp.   |
-| **Q3**   | Retrieve each patient's year of birth.                                                  | Uses `YEAR()` and `DATEPART(year, ...)` to extract the birth year alongside each patient's ID and name.                             |
-| **Q4**   | Retrieve each patient's numerical birth month.                                          | Uses `CONCAT()` to display the patient's full name, then compares `MONTH()` with `DATEPART(month, ...)` to extract the birth month. |
-| **Q5**   | Retrieve the day of the month on which each patient was born.                           | Uses `CONCAT()` to display the patient's full name, then compares `DAY()` with `DATEPART(day, ...)` to extract the birth day.       |
-| **Q6**   | Retrieve each appointment's ID, patient ID, and appointment year.                       | Uses `YEAR()` and `DATEPART(year, ...)` to extract the appointment year alongside the appointment and patient IDs.                  |
-| **Q7**   | Retrieve each appointment's ID and date, with year, month, and day in separate columns. | Uses `YEAR()`, `MONTH()`, and `DAY()` to extract the three date components from `AppointmentDateTime`.                              |
-| **Q8**   | Retrieve each appointment's ID and date, with its calendar quarter labelled Q1–Q4.      | Uses `DATEPART(QUARTER, ...)` to identify the quarter and `CONCAT()` to prefix the result with `Q`.                                 |
-| **Q9**   | Retrieve each patient's name, date of birth, and full birth month name.                 | Uses `CONCAT()` to display the patient's full name and `DATENAME(MONTH, ...)` to return the month name.                             |
-| **Q10**  | Retrieve each appointment's ID, timestamp, and weekday name.                            | Uses `DATENAME(WEEKDAY, ...)` to return the full weekday name for each appointment.                                                 |
-| **Q11**  | Retrieve each appointment's ID, timestamp, and hour in 24-hour format.                  | Uses `DATEPART(HOUR, ...)` to return the numeric hour (0–23) and `DATENAME(HOUR, ...)` to return the hour as text.                  |
-| **Q12**  | Retrieve each appointment's ID and separate hour, minute, and second components.        | Uses `DATEPART(HOUR, ...)`, `DATEPART(MINUTE, ...)`, and `DATEPART(SECOND, ...)` to extract the time components as integers.        |
+| Question | Objective                                                                                             | Implementation                                                                                                                      |
+| -------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Q1**   | Retrieve the current server date and time.                                                            | Uses `CURRENT_TIMESTAMP` with the `CurrentDateTime` alias.                                                                          |
+| **Q2**   | Retrieve current timestamps with higher precision for auditing.                                       | Uses `SYSDATETIME()` for the server's high-precision local timestamp and `SYSUTCDATETIME()` for the high-precision UTC timestamp.   |
+| **Q3**   | Retrieve each patient's year of birth.                                                                | Uses `YEAR()` and `DATEPART(year, ...)` to extract the birth year alongside each patient's ID and name.                             |
+| **Q4**   | Retrieve each patient's numerical birth month.                                                        | Uses `CONCAT()` to display the patient's full name, then compares `MONTH()` with `DATEPART(month, ...)` to extract the birth month. |
+| **Q5**   | Retrieve the day of the month on which each patient was born.                                         | Uses `CONCAT()` to display the patient's full name, then compares `DAY()` with `DATEPART(day, ...)` to extract the birth day.       |
+| **Q6**   | Retrieve each appointment's ID, patient ID, and appointment year.                                     | Uses `YEAR()` and `DATEPART(year, ...)` to extract the appointment year alongside the appointment and patient IDs.                  |
+| **Q7**   | Retrieve each appointment's ID and date, with year, month, and day in separate columns.               | Uses `YEAR()`, `MONTH()`, and `DAY()` to extract the three date components from `AppointmentDateTime`.                              |
+| **Q8**   | Retrieve each appointment's ID and date, with its calendar quarter labelled Q1–Q4.                    | Uses `DATEPART(QUARTER, ...)` to identify the quarter and `CONCAT()` to prefix the result with `Q`.                                 |
+| **Q9**   | Retrieve each patient's name, date of birth, and full birth month name.                               | Uses `CONCAT()` to display the patient's full name and `DATENAME(MONTH, ...)` to return the month name.                             |
+| **Q10**  | Retrieve each appointment's ID, timestamp, and weekday name.                                          | Uses `DATENAME(WEEKDAY, ...)` to return the full weekday name for each appointment.                                                 |
+| **Q11**  | Retrieve each appointment's ID, timestamp, and hour in 24-hour format.                                | Uses `DATEPART(HOUR, ...)` to return the numeric hour (0–23) and `DATENAME(HOUR, ...)` to return the hour as text.                  |
+| **Q12**  | Retrieve each appointment's ID and separate hour, minute, and second components.                      | Uses `DATEPART(HOUR, ...)`, `DATEPART(MINUTE, ...)`, and `DATEPART(SECOND, ...)` to extract the time components as integers.        |
+| **Q13**  | Retrieve each appointment's ID, timestamp, and time-of-day category (Morning, Afternoon, or Evening). | Uses `CASE` with `DATEPART(HOUR, ...)` to classify appointments before 12 PM, from 12 PM to 5:59 PM, and from 6 PM onwards.         |
 
-**Progress:** Module 1 Questions 1–10 (Beginner) and Questions 11–12 (Intermediate) have been implemented. Questions 13–20 and Modules 2–3 remain to be completed.
+**Progress:** Module 1 Questions 1–10 (Beginner) and Questions 11–13 (Intermediate) have been implemented. Questions 14–20 and Modules 2–3 remain to be completed.
 
 ## Getting Started
 
@@ -110,17 +111,17 @@ The `01_beginner-level.sql` file contains the first ten beginner exercises from 
    ```
 
 4. Open `60 Date & Time Functions PRACTICE QUESTIONS 02.pdf` and work through the exercises in numerical order.
-5. Write and execute your solutions in the corresponding `.sql` files. The completed Q1–Q10 queries are in `01_beginner-level.sql`, and Q11–Q12 are in `02-retrieving__component-functions-intermediate-level.sql`.
+5. Write and execute your solutions in the corresponding `.sql` files. The completed Q1–Q10 queries are in `01_beginner-level.sql`, and Q11–Q13 are in `02-retrieving__component-functions-intermediate-level.sql`.
 
 > **Note:** `CURRENT_TIMESTAMP` returns the current SQL Server system date and time. `SYSDATETIME()` returns a higher-precision local timestamp, while `SYSUTCDATETIME()` returns a higher-precision UTC timestamp. Questions using current-time functions produce results relative to the SQL Server system clock. Date parsing, weekday names, and `ISDATE()` results may depend on session language and date-format settings. Time-zone questions state assumptions about the source timestamps.
 
 ## Progress Tracker
 
-- [ ] **Module 1:** Retrieving and Component Functions (Q1–Q20; Q1–Q10 beginner and Q11–Q12 intermediate implemented)
+- [ ] **Module 1:** Retrieving and Component Functions (Q1–Q20; Q1–Q10 beginner and Q11–Q13 intermediate implemented)
 - [ ] **Module 2:** Math and Modification Functions (Q21–Q40)
 - [ ] **Module 3:** Formatting, Conversions, and Advanced Logic (Q41–Q60)
 
-**Current status:** Database schema and sample data prepared; Module 1 beginner Questions 1–10 implemented in `01_beginner-level.sql`, and intermediate Questions 11–12 implemented in `02-retrieving__component-functions-intermediate-level.sql`. Remaining SQL solutions will be added progressively.
+**Current status:** Database schema and sample data prepared; Module 1 beginner Questions 1–10 implemented in `01_beginner-level.sql`, and intermediate Questions 11–13 implemented in `02-retrieving__component-functions-intermediate-level.sql`. Remaining SQL solutions will be added progressively.
 
 ## Project Purpose
 

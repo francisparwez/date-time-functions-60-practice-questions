@@ -27,3 +27,22 @@ SELECT
     DATEPART (MINUTE, AppointmentDateTime) AS MinuteOfAppointment,
     DATEPART (SECOND, AppointmentDateTime) AS SecondOfAppointment
 FROM Appointments;
+
+--Q13. Identify appointments scheduled during the morning, afternoon, and evening
+
+--Create a report displaying the appointment ID, appointment timestamp, and a new column categorising appointments into:
+--Morning: Before 12 PM
+--Afternoon: 12 PM to 5:59 PM
+--Evening: 6 PM onwards.
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+    AppointmentDateTime,
+    CASE
+        WHEN DATEPART (HOUR, AppointmentDateTime) < 12 THEN 'Morning'
+        WHEN DATEPART (HOUR, AppointmentDateTime) BETWEEN 12 AND 17  THEN 'Afternoon'
+        ELSE 'Evening'
+    END AS time_of_day
+FROM Appointments;
