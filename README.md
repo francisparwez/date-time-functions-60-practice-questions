@@ -74,7 +74,7 @@ The first PDF contains the database walkthrough and initial guided exercises; th
 
 ## Completed Implementations
 
-The `01_beginner-level.sql` file contains the first ten beginner exercises from Module 1. The `02-retrieving__component-functions-intermediate-level.sql` file contains the first three intermediate exercises (Q11–Q13):
+The `01_beginner-level.sql` file contains the first ten beginner exercises from Module 1. The `02-retrieving__component-functions-intermediate-level.sql` file contains the first four intermediate exercises (Q11–Q14):
 
 | Question | Objective                                                                                             | Implementation                                                                                                                      |
 | -------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -91,8 +91,9 @@ The `01_beginner-level.sql` file contains the first ten beginner exercises from 
 | **Q11**  | Retrieve each appointment's ID, timestamp, and hour in 24-hour format.                                | Uses `DATEPART(HOUR, ...)` to return the numeric hour (0–23) and `DATENAME(HOUR, ...)` to return the hour as text.                  |
 | **Q12**  | Retrieve each appointment's ID and separate hour, minute, and second components.                      | Uses `DATEPART(HOUR, ...)`, `DATEPART(MINUTE, ...)`, and `DATEPART(SECOND, ...)` to extract the time components as integers.        |
 | **Q13**  | Retrieve each appointment's ID, timestamp, and time-of-day category (Morning, Afternoon, or Evening). | Uses `CASE` with `DATEPART(HOUR, ...)` to classify appointments before 12 PM, from 12 PM to 5:59 PM, and from 6 PM onwards.         |
+| **Q14**  | Retrieve each appointment's ID, timestamp, and numerical day of the year (1–366).                     | Uses `DATEPART(DAYOFYEAR, ...)` to return the appointment's position within the calendar year.                                      |
 
-**Progress:** Module 1 Questions 1–10 (Beginner) and Questions 11–13 (Intermediate) have been implemented. Questions 14–20 and Modules 2–3 remain to be completed.
+**Progress:** Module 1 Questions 1–10 (Beginner) and Questions 11–14 (Intermediate) have been implemented. Questions 15–20 and Modules 2–3 remain to be completed.
 
 ## Getting Started
 
@@ -111,17 +112,17 @@ The `01_beginner-level.sql` file contains the first ten beginner exercises from 
    ```
 
 4. Open `60 Date & Time Functions PRACTICE QUESTIONS 02.pdf` and work through the exercises in numerical order.
-5. Write and execute your solutions in the corresponding `.sql` files. The completed Q1–Q10 queries are in `01_beginner-level.sql`, and Q11–Q13 are in `02-retrieving__component-functions-intermediate-level.sql`.
+5. Write and execute your solutions in the corresponding `.sql` files. The completed Q1–Q10 queries are in `01_beginner-level.sql`, and Q11–Q14 are in `02-retrieving__component-functions-intermediate-level.sql`.
 
 > **Note:** `CURRENT_TIMESTAMP` returns the current SQL Server system date and time. `SYSDATETIME()` returns a higher-precision local timestamp, while `SYSUTCDATETIME()` returns a higher-precision UTC timestamp. Questions using current-time functions produce results relative to the SQL Server system clock. Date parsing, weekday names, and `ISDATE()` results may depend on session language and date-format settings. Time-zone questions state assumptions about the source timestamps.
 
 ## Progress Tracker
 
-- [ ] **Module 1:** Retrieving and Component Functions (Q1–Q20; Q1–Q10 beginner and Q11–Q13 intermediate implemented)
+- [ ] **Module 1:** Retrieving and Component Functions (Q1–Q20; Q1–Q10 beginner and Q11–Q14 intermediate implemented)
 - [ ] **Module 2:** Math and Modification Functions (Q21–Q40)
 - [ ] **Module 3:** Formatting, Conversions, and Advanced Logic (Q41–Q60)
 
-**Current status:** Database schema and sample data prepared; Module 1 beginner Questions 1–10 implemented in `01_beginner-level.sql`, and intermediate Questions 11–13 implemented in `02-retrieving__component-functions-intermediate-level.sql`. Remaining SQL solutions will be added progressively.
+**Current status:** Database schema and sample data prepared; Module 1 beginner Questions 1–10 implemented in `01_beginner-level.sql`, and intermediate Questions 11–14 implemented in `02-retrieving__component-functions-intermediate-level.sql`. Remaining SQL solutions will be added progressively.
 
 ## Project Purpose
 

@@ -46,3 +46,18 @@ SELECT
         ELSE 'Evening'
     END AS time_of_day
 FROM Appointments;
+
+-- Q14. Extract the day number of the year for each appointment
+
+-- Retrieve each appointment's ID, appointment date, and the numerical day of the year (1‒366) on which it occurs.
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+    AppointmentDateTime,
+    DATEPART (
+        DAYOFYEAR,
+        AppointmentDateTime
+    ) AS NumericalDayOfYear
+FROM Appointments;
