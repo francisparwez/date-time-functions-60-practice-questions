@@ -61,3 +61,32 @@ SELECT
         AppointmentDateTime
     ) AS NumericalDayOfYear
 FROM Appointments;
+
+-- Q15. Identify appointments scheduled on weekends
+-- Retrieve appointments scheduled on Saturdays and Sundays. Display the appointment ID, appointment timestamp, and weekday name.
+
+-- METHOD 1: Using DATENAME to filter for weekend appointments
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+    AppointmentDateTime,
+    DATENAME (WEEKDAY, AppointmentDateTime) AS day_of_week
+FROM Appointments
+WHERE
+    DATENAME (WEEKDAY, AppointmentDateTime) IN ('Saturday', 'Sunday');
+
+-- METHOD 2: Using DATEPART to filter for weekend appointments
+
+SELECT @@DATEFIRST AS first_day_of_week;
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+    AppointmentDateTime,
+    DATENAME (WEEKDAY, AppointmentDateTime) AS day_of_week
+FROM Appointments
+WHERE
+    DATEPART (WEEKDAY, AppointmentDateTime) IN (1, 7);
