@@ -90,3 +90,16 @@ SELECT
 FROM Appointments
 WHERE
     DATEPART (WEEKDAY, AppointmentDateTime) IN (1, 7);
+
+-- Q16. Identify patients born in each calendar quarter
+-- Retrieve each patient's ID, name, date of birth, and birth quarter. Categorise their birth dates
+-- into the four calendar quarters.
+
+USE HospitalDB;
+
+SELECT
+	PatientID,
+	CONCAT(FirstName, ' ', LastName) AS [Name],
+	DateOfBirth,
+	CONCAT('Q', DATEPART(QUARTER, DateOfBirth)) AS BirthQuarter
+FROM Patients;
