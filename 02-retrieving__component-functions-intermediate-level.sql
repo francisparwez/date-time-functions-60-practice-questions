@@ -103,3 +103,17 @@ SELECT
 	DateOfBirth,
 	CONCAT('Q', DATEPART(QUARTER, DateOfBirth)) AS BirthQuarter
 FROM Patients;
+
+-- Q17. Generate a year and month reporting column
+
+-- Retrieve each appointment's ID and timestamp, and create separate year and month components alongside a combined numerical year-month column (for example, 202501).
+
+USE HospitalDB;
+
+SELECT
+    AppointmentID,
+    AppointmentDateTime,
+    DATEPART (YEAR, AppointmentDateTime) AS AppointmentYear,
+    DATEPART (MONTH, AppointmentDateTime) AS AppointmentMonth,
+    FORMAT(AppointmentDateTime, 'yyyyMM') AS AppointmentYearMonth
+FROM Appointments;
